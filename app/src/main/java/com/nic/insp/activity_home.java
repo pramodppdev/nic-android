@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.card.MaterialCardView;
 import com.nic.insp.inspection.Inspection;
+import com.nic.insp.routinspections.RoutineInspection;
 
 public class activity_home extends AppCompatActivity {
 
@@ -21,8 +22,8 @@ public class activity_home extends AppCompatActivity {
         inspection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(activity_home.this, RoutineIncpection.class);
-//                startActivity(intent);
+                Intent intent = new Intent(activity_home.this, RoutineInspection.class);
+                startActivity(intent);
             }
         });
 

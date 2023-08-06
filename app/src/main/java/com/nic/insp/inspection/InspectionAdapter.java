@@ -52,30 +52,30 @@ public class InspectionAdapter extends RecyclerView.Adapter<InspectionAdapter.Po
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
-            inspIdTextView = itemView.findViewById(R.id.inspid);
+//            inspIdTextView = itemView.findViewById(R.id.inspid);
             talukTextView = itemView.findViewById(R.id.taluk);
             descTextView=itemView.findViewById(R.id.description);
             inspdeptTextView=itemView.findViewById(R.id.dept);
             ldateTextView=itemView.findViewById(R.id.ldate);
-            statusextView=itemView.findViewById(R.id.status);
-            assignedoff=itemView.findViewById(R.id.assignoff);
-            creatat=itemView.findViewById(R.id.Createat);
-            createby=itemView.findViewById(R.id.createby);
+//            statusextView=itemView.findViewById(R.id.status);
+//            assignedoff=itemView.findViewById(R.id.assignoff);
+//            creatat=itemView.findViewById(R.id.Createat);
+//            createby=itemView.findViewById(R.id.createby);
             district=itemView.findViewById(R.id.district);
 
             // Initialize other TextViews
         }
 
         public void bind(InspectionModel insp) {
-            inspIdTextView.setText(insp.getInspId());
+//            inspIdTextView.setText(insp.getInspId());
             talukTextView.setText(insp.getTaluk());
             descTextView.setText(insp.getDescription());
             inspdeptTextView.setText(insp.getDepartment());
             ldateTextView.setText(insp.getLastDate());
-            statusextView.setText(insp.getStatus());
-            assignedoff.setText(insp.getAssignedOfficer());
-            creatat.setText(insp.getCreatedAt());
-            createby.setText(insp.getCreatedBy());
+//            statusextView.setText(insp.getStatus());
+//            assignedoff.setText(insp.getAssignedOfficer());
+//            creatat.setText(insp.getCreatedAt());
+//            createby.setText(insp.getCreatedBy());
             district.setText(insp.getDistric());
 
             // Bind other data fields here if needed

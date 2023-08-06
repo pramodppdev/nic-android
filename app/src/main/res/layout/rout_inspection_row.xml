@@ -32,52 +32,52 @@
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="wrap_content"-->
 <!--                        android:text="id:"-->
-<!--                        android:id="@+id/inspid"/>-->
+<!--                        android:id="@+id/routinspid"/>-->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="taluk:"
-                        android:id="@+id/taluk"/>
+                        android:id="@+id/routtaluk"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="department:"
-                        android:id="@+id/dept"/>
+                        android:id="@+id/routdept"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="descrption:"-->
+<!--                        android:id="@+id/routdescription"/>-->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="descrption:"
-                        android:id="@+id/description"/>
+                        android:text="routLastdate:"
+                        android:id="@+id/routldate"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="routstatus:"-->
+<!--                        android:id="@+id/routstatus"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="routassignedoff:"-->
+<!--                        android:id="@+id/routassignoff"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="routcreateAt:"-->
+<!--                        android:id="@+id/routCreateat"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="routCreateBy:"-->
+<!--                        android:id="@+id/routcreateby"/>-->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lastdate:"
-                        android:id="@+id/ldate"/>
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="status:"-->
-<!--                        android:id="@+id/status"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="assignedoff:"-->
-<!--                        android:id="@+id/assignoff"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="createAt:"-->
-<!--                        android:id="@+id/Createat"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="CreateBy:"-->
-<!--                        android:id="@+id/createby"/>-->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="district:"
-                        android:id="@+id/district"/>
+                        android:text="routdistrict:"
+                        android:id="@+id/routdistrict"/>
                 </LinearLayout>
 
 

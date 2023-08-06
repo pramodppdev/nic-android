@@ -30,7 +30,7 @@ public class    MainActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
 
-                if (username.equals("admin") && password.equals("password")){
+                if (username.equals("a") && password.equals("p")){
                     Intent intent = new Intent(MainActivity.this, activity_home.class);
                     startActivity(intent);
                 } else {

@@ -3,6 +3,7 @@ package com.nic.insp;
 
 
 import com.nic.insp.inspection.InspectionModel;
+import com.nic.insp.routinspections.RoutInspectionModel;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public interface JsonHolderApi {
 
         @GET("getAllInsp")
         Call<List<InspectionModel>> getPosts();
+
+        @GET("getAllRoutInsp")
+        Call<List<RoutInspectionModel>> getRoutPosts();
 
 
     }

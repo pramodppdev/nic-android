@@ -1,11 +1,15 @@
 package com.nic.insp.routinspections;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.nic.insp.JsonHolderApi;
 import com.nic.insp.R;
@@ -25,7 +29,10 @@ public class RoutineInspection extends AppCompatActivity {
     private RecyclerView routRecyclerView;
     private RoutInspAdapter routInspAdapter;
     private List<RoutInspectionModel> routList;
+    private ImageView imageView;
 
+
+    private static final int REQUEST_IMAGE_PICK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +48,7 @@ public class RoutineInspection extends AppCompatActivity {
 
 
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http:203.192.235.108:8282/api/routinsp/")
+                .baseUrl("http:192.168.0.109:8282/api/routinsp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -70,4 +77,13 @@ public class RoutineInspection extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            imageView.setImageURI(selectedImageUri);
+        }
+    }
 }

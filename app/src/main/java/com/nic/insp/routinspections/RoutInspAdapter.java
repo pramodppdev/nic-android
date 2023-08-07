@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nic.insp.R;
@@ -41,7 +42,7 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
         private TextView routInspIdTextView;
         private TextView routTalukTextView;
         private TextView routInspdeptTextView;
-        private TextView routDescTextView;
+        private RecyclerView routDescriptionRecyclerView ;
         private TextView routLdateTextView;
         private TextView routStatusextView;
         private TextView routAssignedoff;
@@ -54,7 +55,7 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
             super(itemView);
 //            routInspIdTextView = itemView.findViewById(R.id.routinspid);
             routTalukTextView = itemView.findViewById(R.id.routtaluk);
-//            routDescTextView = itemView.findViewById(R.id.routdescription);
+            routDescriptionRecyclerView  = itemView.findViewById(R.id.routDescriptionRecyclerView);
             routInspdeptTextView = itemView.findViewById(R.id.routdept);
             routLdateTextView = itemView.findViewById(R.id.routldate);
 //            routStatusextView = itemView.findViewById(R.id.routstatus);
@@ -69,7 +70,6 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
         public void bind(RoutInspectionModel insp) {
 //            routInspIdTextView.setText(insp.getRoutinspId());
             routTalukTextView.setText(insp.getRouttaluk());
-//            routDescTextView.setText(insp.getRoutdescription());
             routInspdeptTextView.setText(insp.getRoutdepartment());
             routLdateTextView.setText(insp.getRoutlastDate());
 //            routStatusextView.setText(insp.getRoutstatus());
@@ -77,6 +77,11 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
 //            routCreatat.setText(insp.getRoutcreatedAt());
 //            routCreateby.setText(insp.getRoutcreatedBy());
             routDistrict.setText(insp.getRoutdistrict());
+
+            DescAdapter descAdapter = new DescAdapter(insp.getRoutdescription());
+            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
+            routDescriptionRecyclerView.setLayoutManager(layoutManager);
+            routDescriptionRecyclerView.setAdapter(descAdapter);
     
             // Bind other data fields here if needed
         }

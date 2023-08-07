@@ -37,17 +37,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="taluk:"
-                        android:id="@+id/routtaluk"/>
+                        android:id="@+id/routtaluk"
+                        />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="department:"
                         android:id="@+id/routdept"/>
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="descrption:"-->
-<!--                        android:id="@+id/routdescription"/>-->
+
+                    <LinearLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/routDescriptionRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@android:color/white"
+                            android:padding="8dp"/>
+
+                    </LinearLayout>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

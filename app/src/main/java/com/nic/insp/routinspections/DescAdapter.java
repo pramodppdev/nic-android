@@ -58,7 +58,7 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
         public DescViewHolder(@NonNull View itemView) {
             super(itemView);
             routInspContentTextView = itemView.findViewById(R.id.routInspContent);
-            routInspAnsTextView = itemView.findViewById(R.id.routInspAns);
+//            routInspAnsTextView = itemView.findViewById(R.id.routInspAns);
             imgReqTextView = itemView.findViewById(R.id.imgReq);
             uploadImageButton = itemView.findViewById(R.id.uploadImageButton);
 
@@ -66,7 +66,7 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
 
         public void bind(RoutInspDetails routInspDetails) {
             routInspContentTextView.setText(routInspDetails.getRoutInspContent());
-            routInspAnsTextView.setText(routInspDetails.getRoutInspAns());
+//            routInspAnsTextView.setText(routInspDetails.getRoutInspAns());
 //            imgReqTextView.setText(routInspDetails.getImgReq());
 
             if ("Yes".equals(routInspDetails.getImgReq())) {

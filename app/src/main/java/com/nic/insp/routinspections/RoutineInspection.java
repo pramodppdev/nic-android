@@ -48,7 +48,7 @@ public class RoutineInspection extends AppCompatActivity {
 
 
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http:192.168.0.109:8282/api/routinsp/")
+                .baseUrl("http:203.192.235.108:8282/api/routinsp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

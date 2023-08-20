@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -15,161 +16,59 @@
         app:cardElevation="3dp"
         android:layout_marginTop="2dp">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:text="taluk:"
+                    android:id="@+id/routtaluk"
+                    android:textSize="16sp"  />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="department:"
+                    android:id="@+id/routdept"
+                    android:textSize="16sp" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="id:"-->
-<!--                        android:id="@+id/routinspid"/>-->
-                    <TextView
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/routDescriptionRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="taluk:"
-                        android:id="@+id/routtaluk"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="department:"
-                        android:id="@+id/routdept"/>
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/white"
+                        android:padding="8dp" />
 
-                    <LinearLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/routDescriptionRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@android:color/white"
-                            android:padding="8dp"/>
-
-                    </LinearLayout>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="routLastdate:"
-                        android:id="@+id/routldate"/>
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="routstatus:"-->
-<!--                        android:id="@+id/routstatus"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="routassignedoff:"-->
-<!--                        android:id="@+id/routassignoff"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="routcreateAt:"-->
-<!--                        android:id="@+id/routCreateat"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="routCreateBy:"-->
-<!--                        android:id="@+id/routcreateby"/>-->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="routdistrict:"
-                        android:id="@+id/routdistrict"/>
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="routLastdate:"
+                    android:id="@+id/routldate"
+                    android:textSize="16sp"/>
 
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="routdistrict:"
+                    android:id="@+id/routdistrict"
+                    android:textSize="16sp"/>
+            </LinearLayout>
         </LinearLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:id="@+id/llRow"-->
-<!--            android:padding="11dp">-->
-
-
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="11dp"-->
-<!--                android:layout_marginStart="11dp"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtId"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Incpection ID"-->
-<!--                    android:textSize="22sp"-->
-<!--                    android:textStyle="bold"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDepartment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Department"-->
-<!--                    android:textSize="22sp"/>-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDescription"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Description"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDistrict"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="District"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtTaluk"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Taluk"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDate"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Last Date"-->
-<!--                    android:textSize="22sp"-->
-<!--                    android:textStyle="italic"/>-->
-
-
-
-
-
-<!--            </LinearLayout>-->
-
-
-
-<!--        </LinearLayout>-->
-
-
-
     </com.google.android.material.card.MaterialCardView>
-
-
 </LinearLayout>

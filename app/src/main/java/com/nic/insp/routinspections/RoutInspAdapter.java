@@ -1,5 +1,6 @@
 package com.nic.insp.routinspections;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,10 @@ import java.util.List;
 
 public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostViewHolder> {
     private List<RoutInspectionModel> routList;
-    
-    public RoutInspAdapter(List<RoutInspectionModel> routList) {
+    private ImageUploadListener imageUploadListener;
+    public RoutInspAdapter(ImageUploadListener listener,List<RoutInspectionModel> routList) {
             this.routList = routList;
+            this.imageUploadListener = listener;
             }
     
     @NonNull
@@ -78,7 +80,7 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
 //            routCreateby.setText(insp.getRoutcreatedBy());
             routDistrict.setText(insp.getRoutdistrict());
 
-            DescAdapter descAdapter = new DescAdapter(insp.getRoutdescription());
+            DescAdapter descAdapter = new DescAdapter(imageUploadListener,insp.getRoutdescription());
             LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
             routDescriptionRecyclerView.setLayoutManager(layoutManager);
             routDescriptionRecyclerView.setAdapter(descAdapter);

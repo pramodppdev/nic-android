@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.ImageView;
 
 import com.nic.insp.JsonHolderApi;
@@ -24,15 +25,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RoutineInspection extends AppCompatActivity {
-
+public class RoutineInspection extends AppCompatActivity implements ImageUploadListener {
     private RecyclerView routRecyclerView;
     private RoutInspAdapter routInspAdapter;
     private List<RoutInspectionModel> routList;
     private ImageView imageView;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private int adapterPosition;
 
 
-    private static final int REQUEST_IMAGE_PICK = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class RoutineInspection extends AppCompatActivity {
         routRecyclerView = findViewById(R.id.recyclerRoutIncpection);
         routRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         routList = new ArrayList<>();
-        routInspAdapter = new RoutInspAdapter(routList);
+        routInspAdapter = new RoutInspAdapter(this,routList);
         routRecyclerView.setAdapter(routInspAdapter);
 
 
@@ -78,12 +80,35 @@ public class RoutineInspection extends AppCompatActivity {
 
 
     @Override
+    public void onImageUploadRequested(int adapterPosition) {
+
+        openGalleryForResult(adapterPosition);
+
+    }
+
+    private void openGalleryForResult(int adapterPosition) {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
-            imageView.setImageURI(selectedImageUri);
+
+            if (routList != null && adapterPosition >= 0 && adapterPosition < routList.size()) {
+                RoutInspectionModel inspectionModel = routList.get(adapterPosition);
+                if (inspectionModel != null) {
+                    RoutInspDetails details = inspectionModel.getRoutdescription().get(adapterPosition);
+                    if (details != null) {
+                        details.setImageUri(selectedImageUri);
+                        routInspAdapter.notifyItemChanged(adapterPosition);
+                    }
+                }
+            }
         }
     }
+
 }

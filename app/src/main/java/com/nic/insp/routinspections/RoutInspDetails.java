@@ -1,21 +1,21 @@
 package com.nic.insp.routinspections;
 
-import java.sql.Blob;
+import android.net.Uri;
 
 public class RoutInspDetails {
     private String routInspContent;
     private String routInspAns;
     private String imgReq;
-    private Blob image;
+    private Uri imageUri; // Updated field
 
     public RoutInspDetails() {
     }
 
-    public RoutInspDetails(String routInspContent, String routInspAns, String imgReq, Blob image) {
+    public RoutInspDetails(String routInspContent, String routInspAns, String imgReq, Uri imageUri) {
         this.routInspContent = routInspContent;
         this.routInspAns = routInspAns;
         this.imgReq = imgReq;
-        this.image = image;
+        this.imageUri = imageUri;
     }
 
     public String getRoutInspContent() {
@@ -42,11 +42,11 @@ public class RoutInspDetails {
         this.imgReq = imgReq;
     }
 
-    public Blob getImage() {
-        return image;
+    public Uri getImageUri() {
+        return imageUri;
     }
 
-    public void setImage(Blob image) {
-        this.image = image;
+    public void setImageUri(Uri imageUri) {
+        this.imageUri = imageUri;
     }
 }

@@ -55,22 +55,18 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
     
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
-//            routInspIdTextView = itemView.findViewById(R.id.routinspid);
+
             routTalukTextView = itemView.findViewById(R.id.routtaluk);
             routDescriptionRecyclerView  = itemView.findViewById(R.id.routDescriptionRecyclerView);
             routInspdeptTextView = itemView.findViewById(R.id.routdept);
             routLdateTextView = itemView.findViewById(R.id.routldate);
-//            routStatusextView = itemView.findViewById(R.id.routstatus);
-//            routAssignedoff = itemView.findViewById(R.id.routassignoff);
-//            routCreatat = itemView.findViewById(R.id.routCreateat);
-//            routCreateby = itemView.findViewById(R.id.routcreateby);
             routDistrict = itemView.findViewById(R.id.routdistrict);
 
             // Initialize other TextViews
         }
     
         public void bind(RoutInspectionModel insp) {
-//            routInspIdTextView.setText(insp.getRoutinspId());
+//
             routTalukTextView.setText(insp.getRouttaluk());
             routInspdeptTextView.setText(insp.getRoutdepartment());
             routLdateTextView.setText(insp.getRoutlastDate());

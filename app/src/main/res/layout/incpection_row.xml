@@ -28,132 +28,100 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="id:"-->
-<!--                        android:id="@+id/inspid"/>-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Taluk : "
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="taluk:"
-                        android:id="@+id/taluk"/>
+                        android:id="@+id/taluk"
+                        android:textSize="16sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Department : "
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="department:"
-                        android:id="@+id/dept"/>
+                        android:id="@+id/dept"
+                        android:textSize="16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Descrption : "
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="descrption:"
-                        android:id="@+id/description"/>
+                        android:id="@+id/description"
+                        android:textSize="16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last Date : "
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Lastdate:"
-                        android:id="@+id/ldate"/>
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="status:"-->
-<!--                        android:id="@+id/status"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="assignedoff:"-->
-<!--                        android:id="@+id/assignoff"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="createAt:"-->
-<!--                        android:id="@+id/Createat"/>-->
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="CreateBy:"-->
-<!--                        android:id="@+id/createby"/>-->
+                        android:id="@+id/ldate"
+                        android:textSize="16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="District : "
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="district:"
-                        android:id="@+id/district"/>
+                        android:id="@+id/district"
+                        android:textSize="16sp"/>
+                    </LinearLayout>
                 </LinearLayout>
 
 
 
         </LinearLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:id="@+id/llRow"-->
-<!--            android:padding="11dp">-->
-
-
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="11dp"-->
-<!--                android:layout_marginStart="11dp"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtId"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Incpection ID"-->
-<!--                    android:textSize="22sp"-->
-<!--                    android:textStyle="bold"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDepartment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Department"-->
-<!--                    android:textSize="22sp"/>-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDescription"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Description"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDistrict"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="District"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtTaluk"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Taluk"-->
-<!--                    android:textSize="22sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/txtDate"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Last Date"-->
-<!--                    android:textSize="22sp"-->
-<!--                    android:textStyle="italic"/>-->
-
-
-
-
-
-<!--            </LinearLayout>-->
-
-
-
-<!--        </LinearLayout>-->
-
 
 
     </com.google.android.material.card.MaterialCardView>

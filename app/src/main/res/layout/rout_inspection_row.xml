@@ -27,18 +27,41 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="taluk:"
-                    android:id="@+id/routtaluk"
-                    android:textSize="16sp"  />
-                <TextView
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Taluk : "
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="taluk"
+                        android:id="@+id/routtaluk"
+                        android:textSize="16sp"  />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="department:"
-                    android:id="@+id/routdept"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Department : "
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="department:"
+                         android:id="@+id/routdept"
+                         android:textSize="16sp" />
+                </LinearLayout>
 
                 <LinearLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -55,19 +78,42 @@
                         android:padding="8dp" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Date : "
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="routLastdate:"
                     android:id="@+id/routldate"
                     android:textSize="16sp"/>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="District : "
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="routdistrict:"
                     android:id="@+id/routdistrict"
                     android:textSize="16sp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

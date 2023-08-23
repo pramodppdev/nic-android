@@ -87,7 +87,7 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
     public void onImageUploadRequested(int adapterPosition, int inspAdapterPosition) {
 
         this.adapterPosition = adapterPosition;
-        this.inspAdapterPosition= adapterPosition;
+        this.inspAdapterPosition= inspAdapterPosition;
         Toast.makeText(RoutineInspection.this, "adapter post "+String.valueOf(adapterPosition)+" inspPost "+String.valueOf(inspAdapterPosition), Toast.LENGTH_LONG).show();
 
         openGalleryForResult();

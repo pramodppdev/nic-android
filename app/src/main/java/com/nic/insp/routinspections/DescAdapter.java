@@ -46,17 +46,9 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DescViewHolder holder, int position) {
-        RoutInspDetails routInspDetails = descriptionList.get(holder.getAdapterPosition());
+        RoutInspDetails routInspDetails = descriptionList.get(position);
         holder.bind(routInspDetails,position);
 
-        if (routInspDetails.getImageUri() != null) {
-            holder.selectedImageView.setVisibility(View.VISIBLE);
-            holder.selectedImageView.setImageURI(routInspDetails.getImageUri());
-            uploadImageButton.setVisibility(View.GONE);
-        } else {
-            routInspDetails.setImageUri(null);
-            holder.selectedImageView.setVisibility(View.GONE);
-        }
 
         holder.routInspContentTextView.setText(routInspDetails.getRoutInspContent());
 
@@ -65,12 +57,22 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
             uploadImageButton.setOnClickListener(view -> {
                 // Invoke the callback with the adapter position
                 if (imageUploadListener != null) {
-                    imageUploadListener.onImageUploadRequested(holder.getAdapterPosition(),inspAdapterPosition);
+                    imageUploadListener.onImageUploadRequested(position,inspAdapterPosition);
                 }
             });
         }  else {
             uploadImageButton.setVisibility(View.GONE);
         }
+
+        if (routInspDetails.getImageUri() != null) {
+            holder.selectedImageView.setVisibility(View.VISIBLE);
+            holder.selectedImageView.setImageURI(routInspDetails.getImageUri());
+            uploadImageButton.setVisibility(View.GONE);
+        } else {
+//            routInspDetails.setImageUri(null);
+            holder.selectedImageView.setVisibility(View.GONE);
+        }
+
 
 
     }

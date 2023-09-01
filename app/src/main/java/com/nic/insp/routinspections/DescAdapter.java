@@ -101,27 +101,7 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
         }
 
         public void bind(RoutInspDetails routInspDetails, int adapterPosition) {
-//            routInspContentTextView.setText(routInspDetails.getRoutInspContent());
-//
-//            if ("Yes".equals(routInspDetails.getImgReq())) {
-//                uploadImageButton.setVisibility(View.VISIBLE);
-//                uploadImageButton.setOnClickListener(view -> {
-//                    // Invoke the callback with the adapter position
-//                    if (imageUploadListener != null) {
-//                        imageUploadListener.onImageUploadRequested(adapterPosition,inspAdapterPosition);
-//                    }
-//                });
-//            }  else {
-//                uploadImageButton.setVisibility(View.GONE);
-//            }
-//
-//            if (routInspDetails.getImageUri() != null) {
-//                selectedImageView.setVisibility(View.VISIBLE);
-//                selectedImageView.setImageURI(routInspDetails.getImageUri());
-//                uploadImageButton.setVisibility(View.GONE);
-//            } else {
-//                selectedImageView.setVisibility(View.GONE);
-//            }
+
         }
     }
 

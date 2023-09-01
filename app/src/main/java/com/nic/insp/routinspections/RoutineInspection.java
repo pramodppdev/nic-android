@@ -106,17 +106,17 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
 
-//            if (routList != null && adapterPosition >= 0 && adapterPosition < routList.size()) {
+
                 RoutInspectionModel inspectionModel = routList.get(inspAdapterPosition);
                 if (inspectionModel != null) {
                     RoutInspDetails details = inspectionModel.getRoutdescription().get(adapterPosition);
                     if (details != null) {
                         details.setImageUri(selectedImageUri);
-//                        routInspAdapter.notifyItemChanged(adapterPosition);
+
                         routInspAdapter.notifyDataSetChanged();
                     }
                 }
-//            }
+
         }
     }
 

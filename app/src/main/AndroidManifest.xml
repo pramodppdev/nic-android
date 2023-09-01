@@ -25,6 +25,8 @@
         <activity
             android:name=".inspection.Inspection"
             android:exported="false" />
+        <activity android:name=".adhoc.AdHoc"
+            android:exported="false"/>
         <activity
             android:name=".activity_home"
             android:exported="false" />

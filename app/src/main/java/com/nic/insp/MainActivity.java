@@ -34,8 +34,7 @@ public class    MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, activity_home.class);
                     startActivity(intent);
                 } else {
-                    // Show an error message or handle incorrect credentials
-                    // For simplicity, we'll just display a toast message
+
                     Toast.makeText(MainActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }

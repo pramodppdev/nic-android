@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,9 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
     public void onBindViewHolder(@NonNull DescViewHolder holder, int position) {
         RoutInspDetails routInspDetails = descriptionList.get(position);
         holder.bind(routInspDetails,position);
+
+        Log.d("DescAdapter", "Binding data for position: " + position);
+
 
 
         holder.routInspContentTextView.setText(routInspDetails.getRoutInspContent());

@@ -10,9 +10,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.nic.insp.JsonHolderApi;
 import com.nic.insp.MainActivity;
 import com.nic.insp.R;
@@ -37,9 +40,6 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
 
     private int inspAdapterPosition;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +50,16 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
         routInspAdapter = new RoutInspAdapter(RoutineInspection.this,this,routList);
         routRecyclerView.setAdapter(routInspAdapter);
 
+        Log.d("RoutineInspection", "onCreate");
 
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
 
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http:203.192.235.108:8282/api/routinsp/")
+                .baseUrl("http://192.168.95.210:8282/api/routinsp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -64,18 +69,25 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
             @Override
             public void onResponse(Call<List<RoutInspectionModel>> call, Response<List<RoutInspectionModel>> response) {
                 if(!response.isSuccessful()){
+                    Log.d("RoutineInspection", "API call failed: " + response.code());
 
                     return;
 
+
                 }
+                Log.d("RoutineInspection", "API call successful");
+
                 routList.clear(); // Clear existing data
                 routList.addAll(response.body()); // Add new data
                 routInspAdapter.notifyDataSetChanged();
+
+
 
             }
 
             @Override
             public void onFailure(Call<List<RoutInspectionModel> >call, Throwable t) {
+                Log.e("RoutineInspection", "API call failed: " + t.getMessage());
 
                 return;
             }
@@ -105,6 +117,8 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
+            Log.d("RoutineInspection", "Image selected: " + selectedImageUri.toString());
+
 
 //            if (routList != null && adapterPosition >= 0 && adapterPosition < routList.size()) {
                 RoutInspectionModel inspectionModel = routList.get(inspAdapterPosition);

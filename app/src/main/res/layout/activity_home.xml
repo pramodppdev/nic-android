@@ -155,11 +155,33 @@
 <!--                </com.google.android.material.card.MaterialCardView>-->
 
 <!--            </LinearLayout>-->
+            <LinearLayout
+                android:id="@+id/sessionUsernameLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/routine_inspection_card">
+
+                <!-- Add a TextView to display the sessionUsername -->
+                <TextView
+                    android:id="@+id/sessionUsernameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Session Username"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <!--        </com.google.android.material.card.MaterialCardView>-->
+
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

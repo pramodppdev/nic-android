@@ -16,9 +16,11 @@ import java.util.List;
 public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostViewHolder> {
     private List<RoutInspectionModel> routList;
     private ImageUploadListener imageUploadListener;
-    public RoutInspAdapter(ImageUploadListener listener,List<RoutInspectionModel> routList) {
+    private Context context;
+    public RoutInspAdapter(Context context,ImageUploadListener listener,List<RoutInspectionModel> routList) {
             this.routList = routList;
             this.imageUploadListener = listener;
+            this.context = context;
             }
     
     @NonNull
@@ -33,7 +35,13 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
             RoutInspectionModel routpost = routList.get(position);
             holder.bind(routpost);
-            }
+
+        DescAdapter descAdapter = new DescAdapter(imageUploadListener,routpost.getRoutdescription(),position);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        holder.routDescriptionRecyclerView.setLayoutManager(layoutManager);
+        holder.routDescriptionRecyclerView.setAdapter(descAdapter);
+
+    }
 
     @Override
     public int getItemCount() {
@@ -76,11 +84,11 @@ public class RoutInspAdapter extends RecyclerView.Adapter<RoutInspAdapter.PostVi
 //            routCreateby.setText(insp.getRoutcreatedBy());
             routDistrict.setText(insp.getRoutdistrict());
 
-            DescAdapter descAdapter = new DescAdapter(imageUploadListener,insp.getRoutdescription());
-            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
-            routDescriptionRecyclerView.setLayoutManager(layoutManager);
-            routDescriptionRecyclerView.setAdapter(descAdapter);
-    
+//            DescAdapter descAdapter = new DescAdapter(imageUploadListener,insp.getRoutdescription(),getAdapterPosition());
+//            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
+//            routDescriptionRecyclerView.setLayoutManager(layoutManager);
+//            routDescriptionRecyclerView.setAdapter(descAdapter);
+//
             // Bind other data fields here if needed
         }
     }

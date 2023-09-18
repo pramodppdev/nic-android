@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,12 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
 
     private ImageUploadListener imageUploadListener;
 
-    public DescAdapter(ImageUploadListener imageUploadListener,List<RoutInspDetails> descriptionList) {
+    private int inspAdapterPosition;
+
+    public DescAdapter(ImageUploadListener imageUploadListener,List<RoutInspDetails> descriptionList,int inspAdapterPosition) {
         this.descriptionList = descriptionList;
         this.imageUploadListener= imageUploadListener;
+        this.inspAdapterPosition=inspAdapterPosition;
     }
 
     @NonNull
@@ -45,6 +49,36 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
     public void onBindViewHolder(@NonNull DescViewHolder holder, int position) {
         RoutInspDetails routInspDetails = descriptionList.get(position);
         holder.bind(routInspDetails,position);
+
+        Log.d("DescAdapter", "Binding data for position: " + position);
+
+
+
+        holder.routInspContentTextView.setText(routInspDetails.getRoutInspContent());
+
+        if ("Yes".equals(routInspDetails.getImgReq())) {
+            uploadImageButton.setVisibility(View.VISIBLE);
+            uploadImageButton.setOnClickListener(view -> {
+                // Invoke the callback with the adapter position
+                if (imageUploadListener != null) {
+                    imageUploadListener.onImageUploadRequested(position,inspAdapterPosition);
+                }
+            });
+        }  else {
+            uploadImageButton.setVisibility(View.GONE);
+        }
+
+        if (routInspDetails.getImageUri() != null) {
+            holder.selectedImageView.setVisibility(View.VISIBLE);
+            holder.selectedImageView.setImageURI(routInspDetails.getImageUri());
+            uploadImageButton.setVisibility(View.GONE);
+        } else {
+//            routInspDetails.setImageUri(null);
+            holder.selectedImageView.setVisibility(View.GONE);
+        }
+
+
+
     }
 
     @Override
@@ -71,27 +105,27 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.DescViewHolder
         }
 
         public void bind(RoutInspDetails routInspDetails, int adapterPosition) {
-            routInspContentTextView.setText(routInspDetails.getRoutInspContent());
-
-            if ("Yes".equals(routInspDetails.getImgReq())) {
-                uploadImageButton.setVisibility(View.VISIBLE);
-                uploadImageButton.setOnClickListener(view -> {
-                    // Invoke the callback with the adapter position
-                    if (imageUploadListener != null) {
-                        imageUploadListener.onImageUploadRequested(adapterPosition);
-                    }
-                });
-            }  else {
-                uploadImageButton.setVisibility(View.GONE);
-            }
-
-            if (routInspDetails.getImageUri() != null) {
-                selectedImageView.setVisibility(View.VISIBLE);
-                selectedImageView.setImageURI(routInspDetails.getImageUri());
-                uploadImageButton.setVisibility(View.GONE);
-            } else {
-                selectedImageView.setVisibility(View.GONE);
-            }
+//            routInspContentTextView.setText(routInspDetails.getRoutInspContent());
+//
+//            if ("Yes".equals(routInspDetails.getImgReq())) {
+//                uploadImageButton.setVisibility(View.VISIBLE);
+//                uploadImageButton.setOnClickListener(view -> {
+//                    // Invoke the callback with the adapter position
+//                    if (imageUploadListener != null) {
+//                        imageUploadListener.onImageUploadRequested(adapterPosition,inspAdapterPosition);
+//                    }
+//                });
+//            }  else {
+//                uploadImageButton.setVisibility(View.GONE);
+//            }
+//
+//            if (routInspDetails.getImageUri() != null) {
+//                selectedImageView.setVisibility(View.VISIBLE);
+//                selectedImageView.setImageURI(routInspDetails.getImageUri());
+//                uploadImageButton.setVisibility(View.GONE);
+//            } else {
+//                selectedImageView.setVisibility(View.GONE);
+//            }
         }
     }
 

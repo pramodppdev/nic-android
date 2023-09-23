@@ -48,6 +48,7 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
         routRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         routList = new ArrayList<>();
         routInspAdapter = new RoutInspAdapter(RoutineInspection.this,this,routList);
+        Log.d("RoutAdap", String.valueOf(routInspAdapter));
         routRecyclerView.setAdapter(routInspAdapter);
 
         Log.d("RoutineInspection", "onCreate");
@@ -59,8 +60,8 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
 
 
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http://192.168.95.210:8282/api/routinsp/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://203.192.235.108:8282/api/routinsp/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         JsonHolderApi jsonHolderApi = retrofit.create(JsonHolderApi.class);
@@ -80,6 +81,8 @@ public class RoutineInspection extends AppCompatActivity implements ImageUploadL
                 routList.clear(); // Clear existing data
                 routList.addAll(response.body()); // Add new data
                 routInspAdapter.notifyDataSetChanged();
+
+                Log.d("routList", String.valueOf(routList));
 
 
 

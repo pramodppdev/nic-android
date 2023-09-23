@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             try {
                                 String responseBodyString = response.body().string();
+                                Log.d("resp",responseBodyString);
                                 // Parse and validate the response here
 
                                 if (responseBodyString.contains("Succees")) {

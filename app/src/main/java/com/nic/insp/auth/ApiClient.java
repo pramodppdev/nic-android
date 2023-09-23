@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "http://192.168.95.210:8282"; // Replace with your actual base URL
+    private static final String BASE_URL = "http://203.192.235.108:8282"; // Replace with your actual base URL
 
     private static Retrofit retrofit;
 

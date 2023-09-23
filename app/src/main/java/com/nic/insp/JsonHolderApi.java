@@ -27,6 +27,10 @@ public interface JsonHolderApi {
         @POST("/auth/off")
         Call<ResponseBody> authenticate(@Body AuthenticationRequest request);
 
+        @GET("session_user")
+        Call<String> getSessionUsername();
+
+
 
     }
 

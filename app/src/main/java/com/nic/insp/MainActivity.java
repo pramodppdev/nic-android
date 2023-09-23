@@ -1,5 +1,6 @@
 package com.nic.insp;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 String responseBodyString = response.body().string();
                                 Log.d("resp",responseBodyString);
-                                // Parse and validate the response here
 
                                 if (responseBodyString.contains("Succees")) {
-                                    // Authentication successful, navigate to HomeActivity
+
+                                    String sessionId = response.headers().get("Set-Cookie"); // Assuming the session ID is in a header named "Set-Cookie"
+                                    if (sessionId != null) {
+                                        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = preferences.edit();
+                                        editor.putString("sessionId", sessionId);
+                                        editor.apply();
+                                    }
                                     Intent intent = new Intent(MainActivity.this, activity_home.class);
                                     startActivity(intent);
                                     finish();

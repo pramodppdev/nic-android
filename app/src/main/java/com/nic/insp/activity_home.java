@@ -1,5 +1,6 @@
 package com.nic.insp;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,24 +28,27 @@ public class activity_home extends AppCompatActivity {
     private MaterialCardView inspection, pending_inspection;
     private TextView sessionUsernameTextView;
     private JsonHolderApi jsonHolderApi;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Initialize Gson and Retrofit as before
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
 
-        // Initialize your Retrofit instance
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://203.192.235.108:8282/") // Replace with your base URL
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        // Create an instance of your JsonHolderApi interface
         jsonHolderApi = retrofit.create(JsonHolderApi.class);
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
         sessionUsernameTextView = findViewById(R.id.sessionUsernameTextView);
 
@@ -71,25 +75,11 @@ public class activity_home extends AppCompatActivity {
     }
 
     private void fetchSessionUsername() {
-        Call<String> call = jsonHolderApi.getSessionUsername();
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.d("response session",response.toString());
+        // Get the session username from SharedPreferences
+        String sessionUsername = sharedPreferences.getString("sessionUsername", "");
+        Log.d("Session User",sessionUsername);
 
-//                if (response.isSuccessful()) {
-//                    String sessionUsername = response.body();
-//                    sessionUsernameTextView.setText(sessionUsername);
-//                } else {
-//                    Toast.makeText(activity_home.this, "Failed to fetch session username", Toast.LENGTH_SHORT).show();
-//                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Log.e("response error", String.valueOf(t));
-                Toast.makeText(activity_home.this, "Network error", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // Update the TextView with the session username
+        sessionUsernameTextView.setText(sessionUsername);
     }
 }

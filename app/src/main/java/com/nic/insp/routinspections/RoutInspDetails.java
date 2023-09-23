@@ -6,7 +6,7 @@ public class RoutInspDetails {
     private String routInspContent;
     private String routInspAns;
     private String imgReq;
-    private Uri imageUri; // Updated field
+    private Uri imageUri=null; // Updated field
 
     public RoutInspDetails() {
     }

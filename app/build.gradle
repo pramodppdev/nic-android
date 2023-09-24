@@ -1,51 +1,74 @@
+// Apply the Android application plugin, which is essential for building Android apps.
 plugins {
     id 'com.android.application'
 }
 
 android {
+   // namespace for the  application
     namespace 'com.nic.insp'
+     // Set the compile SDK version to 33
     compileSdk 33
 
     defaultConfig {
+        // Specifing the application ID for the app.
         applicationId "com.nic.insp"
-        minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        minSdk 21  // minimum Android SDK version required.
+        targetSdk 33 // the target Android SDK version.
+        versionCode 1    // version code for the app
+        versionName "1.0" // version name for the app
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"  // Configure the test runner for instrumented tests.
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled false // Disable minification for release builds.
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'  //  ProGuard rules files for release builds.
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8  // Set source compatibility to Java 8.
+        targetCompatibility JavaVersion.VERSION_1_8  // Set target compatibility to Java 8.
     }
 }
 
 dependencies {
 
+      // Include the AndroidX AppCompat library for modern Android app development.
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.gms:play-services-auth:20.6.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    
+    implementation 'com.google.android.material:material:1.9.0'        // Include the Material Components library for UI design.
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'   // Include the ConstraintLayout library for layout design.
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'   // Include Google Play Services authentication.
+    testImplementation 'junit:junit:4.13.2'                              // Include JUnit for unit testing.
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'             // Include AndroidX JUnit extensions for testing.
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // Include Espresso for UI testing.
 
-    implementation 'com.google.android.gms:play-services-drive:17.0.0'
+    implementation 'com.google.android.gms:play-services-drive:17.0.0'    // Include Google Play Services Drive API.
 
 
-    //retrofit
+    // Include the RecyclerView library from the Android Support Library.
+   // this line was missing in your code which was causing the problem please try using.
+   // we have include this line as per the documentation of recyclerview 
+   // https://developer.android.com/develop/ui/views/layout/recyclerview and https://github.com/android/views-widgets-samples/blob/main/RecyclerView/Application/build.gradle
+   // use the above documentations for refrence.
+    implementation 'com.android.support:recyclerview-v7:24.0.0'
+
+    // Note: Consider migrating to AndroidX and using androidx.recyclerview instead.
+    // if the aove line of code doesn't work for you just use this androidx below code of line
+    // implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+
+
+
+
+    // Retrofit for network requests.
 
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
-    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'   // Gson for JSON serialization and deserialization.
+
+    // OkHttp for HTTP requests and logging.
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1' 
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
 
